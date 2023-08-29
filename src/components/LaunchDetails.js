@@ -1,19 +1,32 @@
-const LaunchDetails = ({launch}) => {
+import styled from "styled-components";
 
-  if (!launch){
-    return <p>Loading...</p>
+const Paragraph = styled.p`
+  margin: 0;
+  padding: 1em;
+  background-color: #ced7e0;
+  color: #062c43;
+`;
+
+const BigParagraph = styled(Paragraph)`
+  font-size: 1.5em;
+  padding: 0.5em;
+  border-bottom: 1px solid #062c43;
+`;
+
+const LaunchDetails = ({ launch }) => {
+  if (!launch) {
+    return <p>Loading...</p>;
   }
 
   return (
     <>
-      <h3>{launch.mission_name}</h3>
-      <p>Flight Number: {launch.flight_number}</p>
-      <p>Year: {launch.launch_year}</p>
-      <p>Rocket: {launch.rocket.rocket_name}</p>
-      <p>Details of launch: {launch.details}</p>
+      <BigParagraph>{launch.mission_name}</BigParagraph>
+      <Paragraph>Flight Number: {launch.flight_number}</Paragraph>
+      <Paragraph>Year: {launch.launch_year}</Paragraph>
+      <Paragraph>Rocket: {launch.rocket.rocket_name}</Paragraph>
+      <Paragraph>Details of launch: {launch.details}</Paragraph>
     </>
-  )
-
-}
+  );
+};
 
 export default LaunchDetails;
